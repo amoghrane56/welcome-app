@@ -7,8 +7,8 @@ from docx.shared import Pt
 # Define a function to fetch data from the database
 def fetch_data_from_database(pms_account_code):
     # Establish a connection to the SQL Server database
-    connection_string = """DRIVER={ODBC Driver 17 for SQL Server};SERVER=192.168.13.10; 
-                        DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123"""
+    connection_string = """DRIVER={SQL Server};SERVER=192.168.13.10;
+                          DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123"""
     conn = pyodbc.connect(connection_string)
     cursor = conn.cursor()
 
@@ -130,38 +130,20 @@ placeholder = st.empty()
 input_code = placeholder.text_input('Enter PMS Account Code:', key=1)
 
 # Generate Welcome Letter button
-result = generate_welcome_letter(input_code)
-if result:
-    # Display success message and the generated content
-    st.success("Welcome letter generated successfully.")
-    st.text(result)
-else:
-    # Display a warning if no data is found
-    st.warning("No data found for the provided PMS account code.")
+if input_code:
+    result = generate_welcome_letter(input_code)
+    if result:
+        # Display success message and the generated content
+        st.success("Welcome letter generated successfully.")
+        st.text(result)
+    else:
+        # Display a warning if no data is found
+        st.warning("No data found for the provided PMS account code.")
 
-# Clear button
-click_clear = st.button('Clear Input', key=3)
-if click_clear:
-    # Clear the input field by updating the value
-    input_code = placeholder.text_input('Enter PMS Account Code:', value='', key=2)
+    # Clear button
+    click_clear = st.button('Clear Input', key=3)
+    if click_clear:
+        # Clear the input field by updating the value
+        input_code = placeholder.text_input('Enter PMS Account Code:', value='', key=2)
 
-
-
-
-        
-
-        
-
-                
-
-        
-
-
-    
-
-
-
-
-    
-
-
+        click_clear = False
