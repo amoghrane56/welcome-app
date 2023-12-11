@@ -7,8 +7,8 @@ from docx.shared import Pt
 # Define a function to fetch data from the database
 def fetch_data_from_database(pms_account_code):
     # Establish a connection to the SQL Server database
-    connection_string = """DRIVER={SQL Server};SERVER=192.168.13.10;
-                          DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123"""
+    connection_string = """DRIVER={{/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.0.so.1.1}};
+                        SERVER=192.168.13.10; DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123"""
     conn = pyodbc.connect(connection_string)
     cursor = conn.cursor()
 
