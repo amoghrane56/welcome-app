@@ -1,4 +1,3 @@
-# !pip install -r requirements.txt
 import streamlit as st
 from docx import Document
 import pandas as pd
@@ -9,7 +8,7 @@ from docx.shared import Pt
 def fetch_data_from_database(pms_account_code):
     # Establish a connection to the SQL Server database
     connection_string = """DRIVER={ODBC Driver 17 for SQL Server};SERVER=192.168.13.10;
-                          DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123"""
+                          DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123;Timeout=30"""
     conn = pyodbc.connect(connection_string)
     cursor = conn.cursor()
 
