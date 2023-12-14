@@ -7,7 +7,7 @@ from docx.shared import Pt
 # Define a function to fetch data from the database
 def fetch_data_from_database(pms_account_code):
     # Establish a connection to the SQL Server database
-    connection_string = """DRIVER={SQL Server};SERVER=192.168.13.10;
+    connection_string = """DRIVER={ODBC Driver 17 for SQL Server};SERVER=192.168.13.10;
                        DATABASE=IntegraUAT;UID=amog;PWD=Abcd#123;
                        Login Timeout=30;Encrypt=yes;TrustServerCertificate=no;
                        Connection Timeout=60;"""
